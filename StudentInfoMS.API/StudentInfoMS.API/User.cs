@@ -1,6 +1,6 @@
-﻿namespace StudentInfoModel
+namespace StudentInfoMS.API
 {
-    public class StudentInfo
+    public class User
     {
         public string s_studentID { get; set; }
         public string s_name { get; set; }

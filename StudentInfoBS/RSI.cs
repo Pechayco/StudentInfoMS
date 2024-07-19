@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StudentInfoBS
 {
-    internal class RSI
+    public class RSI
     {
         SC sc = new SC();
         StudentOperator so = new StudentOperator();
@@ -36,7 +36,7 @@ namespace StudentInfoBS
 
             if(sc.IsloggedIn (infos.s_studentID))
             {
-                st = so.AddStudent (infos) > 0;
+                st = so.UpdateStudent(infos) > 0;
             }
             return st;
         }
@@ -52,7 +52,7 @@ namespace StudentInfoBS
 
             if (sc.IsloggedIn(infos.s_studentID))
             {
-                st = so.AddStudent(infos) > 0;
+                st = so.DeleteStudent(infos) > 0;
             }
             return st;
         }
