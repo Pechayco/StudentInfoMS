@@ -3,7 +3,7 @@ using StudentInfoModel;
 using StudentInfoDL;
 using System;
 
-namespace Client
+namespace StudentInfoManagement
 {
     internal class Program
     {

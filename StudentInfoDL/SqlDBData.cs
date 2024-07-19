@@ -2,101 +2,100 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentInfoDL
 {
-    internal class SqlDBData
+    public class SqlDBData
     {
-        string connection = "Data Source =DESKTOP-7KK6NG5\\SQLEXPRESS; Initial Catalog = StudentInfoManagement; Integrated Security = True;";
+        //string connection = "Data Source =DESKTOP-7KK6NG5\\SQLEXPRESS; Initial Catalog = StudentInfoManagement; Integrated Security = True;";
+        static string connection = "Server=tcp:20.205.142.95,1433; Database=StudentInfoManagement; User Id=sa; Password=Pechayco019!";
 
         SqlConnection sqlConnection;
 
         public SqlDBData()
         {
-            this.sqlConnection = new SqlConnection(connection);
+            sqlConnection = new SqlConnection(connection);
         }
+
+
         public List<StudentInfo> GetStudent()
         {
-            string SELECT = "Select * FROM Student";
+            string SELECT = "SELECT * FROM Student";
 
             SqlCommand selcom = new SqlCommand(SELECT, sqlConnection);
 
             sqlConnection.Open();
             List<StudentInfo> stud = new List<StudentInfo>();
 
-            SqlDataReader read = selcom.ExecuteReader();
+            SqlDataReader re = selcom.ExecuteReader();
 
-            while (read.Read())
+            while (re.Read())
             {
-                string studentID = read["StudentID"].ToString();
-                string name = read["Name"].ToString();
-                string email = read["Email"].ToString();
-                string phonenum = read["phonenum"].ToString() ;
-                string address = read["Address"].ToString();
+                string studentID = re["StudentID"].ToString();
+                string name = re["Name"].ToString();
+                string email = re["Email"].ToString();
+                string phonenum = re["phonenum"].ToString();
+                string address = re["Address"].ToString();
 
-                StudentInfo readStudent = new StudentInfo();
-                readStudent.s_studentID = studentID;
-                readStudent.s_name = name;
-                readStudent.s_email = email;
-                readStudent.s_phonenum = phonenum;
-                readStudent.s_address = address;
+                StudentInfo read = new StudentInfo();
+                read.s_studentID = studentID;
+                read.s_name = name;
+                read.s_email = email;
+                read.s_phonenum = phonenum;
+                read.s_address = address;
 
-                stud.Add(readStudent);
-
+                stud.Add(read);
+                
             }
             sqlConnection.Close();
 
             return stud;
         }
+
         public int AddStudent(string studentID, string name, string email, string phonenum, string address)
         {
             int success;
 
-            string INSERT = "INSERT INTO Student VALUES (@StudentID, @Name, @Email, @Phone Number, @Address)";
-            
+            string INSERT = "INSERT INTO Student VALUES(@StudentID, @Name, @Email,@PhoneNumber, @Address)";
+
             SqlCommand incom = new SqlCommand(INSERT, sqlConnection);
 
             incom.Parameters.AddWithValue("@StudentID", studentID);
             incom.Parameters.AddWithValue("@Name", name);
             incom.Parameters.AddWithValue("@Email", email);
-            incom.Parameters.AddWithValue("@Phone Number", phonenum);
+            incom.Parameters.AddWithValue("@PhoneNumber", phonenum);
             incom.Parameters.AddWithValue("@Address", address);
-            sqlConnection.Close();
+            sqlConnection.Open();
 
             success = incom.ExecuteNonQuery();
 
             sqlConnection.Close();
-            
+
             return success;
-
         }
-
         public int UpdateStudent(string studentID, string name, string email, string phonenum, string address)
         {
             int success;
 
-            string UPDATE = $"UPDATE Student SET Name = @Name, Email = @Email, Phone Number = @Phone Number, Address = @Address WHERE StduentID = @StudentID";
-
+            string UPDATE = $"UPDATE Student SET Name = @Name, Email = @Email, @PhoneNumber = phonenum, Address = @Address WHERE StudentID = @StudentID";
 
             SqlCommand upcom = new SqlCommand(UPDATE, sqlConnection);
 
-            upcom.Parameters.AddWithValue("@Student ID", studentID);
+
+            upcom.Parameters.AddWithValue("@StudentID", studentID);
             upcom.Parameters.AddWithValue("@Name", name);
             upcom.Parameters.AddWithValue("@Email", email);
-            upcom.Parameters.AddWithValue("@Phone Number", phonenum);
+            upcom.Parameters.AddWithValue("@PhoneNumber", phonenum);
             upcom.Parameters.AddWithValue("@Address", address);
-            sqlConnection.Close();
+            sqlConnection.Open();
 
             success = upcom.ExecuteNonQuery();
 
             sqlConnection.Close();
 
             return success;
-        }
 
+        }
         public int DeleteStudent(string studentID)
         {
             int success;
@@ -105,7 +104,7 @@ namespace StudentInfoDL
             SqlCommand delcom = new SqlCommand(DELETE, sqlConnection);
             sqlConnection.Open();
 
-            delcom.Parameters.AddWithValue("@StudentID", studentID );
+            delcom.Parameters.AddWithValue("@StudentID", studentID);
 
             success = delcom.ExecuteNonQuery();
 
@@ -113,5 +112,6 @@ namespace StudentInfoDL
 
             return success;
         }
+
     }
 }
