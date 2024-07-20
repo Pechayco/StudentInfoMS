@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentInfoDL", "StudentInf
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentInfoManagement", "Client\StudentInfoManagement.csproj", "{E9BD6E5D-6C79-4360-B033-CBFEBC4C3AC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentInfoMS.API", "StudentInfoMS.API\StudentInfoMS.API\StudentInfoMS.API.csproj", "{C3E4E9F6-D566-416A-900C-7AE28FF6558A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentInfoMS.API", "StudentInfoMS.API\StudentInfoMS.API\StudentInfoMS.API.csproj", "{C3E4E9F6-D566-416A-900C-7AE28FF6558A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

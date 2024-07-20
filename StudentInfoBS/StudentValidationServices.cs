@@ -8,9 +8,9 @@ using StudentInfoModel;
 
 namespace StudentInfoBS
 {
-    internal class SC
+    internal class StudentValidationServices
     {
-        GetService gs = new GetService();
+        StudentGetServices gs = new StudentGetServices();
 
         public bool IsLoggedIn (string s_studentID)
         {

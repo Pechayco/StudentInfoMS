@@ -5,11 +5,11 @@ using System.Reflection.Metadata.Ecma335;
 
 namespace StudentInfoBS
 {
-    public class GetService
+    public class StudentGetServices
     {
        public List<StudentInfo> GetStudentInfos()
         {
-            StudentOperator studentOperator = new StudentOperator();
+            StudentData studentOperator = new StudentData();
             return studentOperator.GetStudent();
         }
         public StudentInfo GetstudentID (string s_studentID)

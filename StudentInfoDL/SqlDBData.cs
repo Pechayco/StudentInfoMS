@@ -7,8 +7,8 @@ namespace StudentInfoDL
 {
     public class SqlDBData
     {
-        //string connection = "Data Source =DESKTOP-7KK6NG5\\SQLEXPRESS; Initial Catalog = StudentInfoManagement; Integrated Security = True;";
-        static string connection = "Server=tcp:20.205.142.95,1433; Database=StudentInfoManagement; User Id=sa; Password=Pechayco019!";
+        string connection = "Data Source =DESKTOP-7KK6NG5\\SQLEXPRESS; Initial Catalog = StudentInfoManagement; Integrated Security = True;";
+        //static string connection = "Server=tcp:20.205.142.95,1433; Database=StudentInfoManagement; User Id=sa; Password=Pechayco019!";
 
         SqlConnection sqlConnection;
 
