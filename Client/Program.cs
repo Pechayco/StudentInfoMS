@@ -14,7 +14,7 @@ namespace StudentInfoManagement
             Console.WriteLine("Student Information Management System");
             Console.WriteLine("======================");
 
-            GetService gs = new GetService();
+            StudentGetServices gs = new StudentGetServices();
 
             var infos = gs.GetStudentInfos();
 

@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace StudentInfoBS
 {
-    public class RSI
+    public class StudentTransactionServices
     {
-        SC sc = new SC();
-        StudentOperator so = new StudentOperator();
+        StudentValidationServices sc = new StudentValidationServices();
+        StudentData so = new StudentData();
 
         public bool CreateStudent (StudentInfo infos)
         {

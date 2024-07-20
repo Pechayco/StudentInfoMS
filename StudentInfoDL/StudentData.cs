@@ -3,12 +3,12 @@ using StudentInfoModel;
 
 namespace StudentInfoDL
 {
-    public class StudentOperator
+    public class StudentData
     {
         List<StudentInfo> infos;
         SqlDBData sqlData;
 
-        public StudentOperator()
+        public StudentData()
         {
             infos = new List<StudentInfo>();
             sqlData = new SqlDBData();
