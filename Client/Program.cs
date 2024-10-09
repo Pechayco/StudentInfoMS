@@ -1,9 +1,8 @@
-﻿using StudentInfoBS;
+﻿using MailKit.Net.Smtp;
+using MimeKit;
 using StudentInfoModel;
 using StudentInfoDL;
-using System;
-using MailKit.Net.Smtp;
-using MimeKit;
+using StudentInfoBS;
 
 namespace StudentInfoManagement
 {
@@ -15,8 +14,7 @@ namespace StudentInfoManagement
             Console.WriteLine("Student Information Management System");
             Console.WriteLine("======================");
 
-            GetService gs = new GetService();
-
+            StudentGetServices gs = new StudentGetServices();
             var infos = gs.GetStudentInfos();
 
             foreach (var item in infos)
